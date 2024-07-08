@@ -18,5 +18,21 @@ jobs:
       - name: install httpd
         run: | 
            ssh ec2-user@3.6.92.170 'sudo yum -y update && sudo yum -y install httpd php unzip && sudo systemctl enable --now httpd'
+
+jobs:
+  deploy code:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: checkout repo 
+        uses: actions/checkout@v4.1.7
+
+      - name: setup ssh 
+        uses: webfactory/ssh-agent@v0.9.0
+        with: 
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+      - name: copy artifact 
+        run : |
+          scp index.html ec2-user@3.6.92.170://var/www/html/
             
 
