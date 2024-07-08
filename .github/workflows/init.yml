@@ -10,12 +10,13 @@ jobs:
     runs-on: linux
 
     steps:
-      - name : setup ssh 
-      - uses: webfactory/ssh-agent@v0.9.0
+      - name: setup ssh 
+        uses: webfactory/ssh-agent@v0.9.0
         with: 
           ssh-private-key: ${{ secrets.SSH_KEY }}
-      - name : install httpd
-        run : | 
+          
+      - name: install httpd
+        run: | 
            ssh ec2-user@3.6.92.170 'sudo yum update && sudo yum install httpd php unzip && sudo systemctl enable --now httpd'
             
 
