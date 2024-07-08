@@ -35,6 +35,7 @@ jobs:
           
       - name: copy artifact 
         run : |
-          scp index.html ec2-user@3.6.92.170://var/www/html/
+          scp index.html ec2-user@3.6.92.170://home/ec2-user/
+          ssh ec2-user@3.6.92.170 'sudo cp /home/ec2-user/index.html /var/www/html/'
             
 
