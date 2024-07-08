@@ -14,6 +14,7 @@ jobs:
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1.4.1
         with: 
           ssh-private-key: ${{ secrets.SSH_KEY }}
+          ssh-host: 3.6.92.170
           
       - name: install httpd
         run: | 
@@ -30,6 +31,8 @@ jobs:
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1.4.1
         with: 
           ssh-private-key: ${{ secrets.SSH_KEY }}
+          ssh-host: 3.6.92.170
+          
       - name: copy artifact 
         run : |
           scp index.html ec2-user@3.6.92.170://var/www/html/
