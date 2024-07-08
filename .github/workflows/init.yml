@@ -17,6 +17,6 @@ jobs:
           
       - name: install httpd
         run: | 
-           ssh ec2-user@3.6.92.170 'sudo yum update && sudo yum install httpd php unzip && sudo systemctl enable --now httpd'
+           ssh ec2-user@3.6.92.170 'sudo yum -y update && sudo yum -y install httpd php unzip && sudo systemctl enable --now httpd'
             
 
