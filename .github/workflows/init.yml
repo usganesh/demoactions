@@ -14,7 +14,7 @@ jobs:
         uses: kielabokkie/ssh-key-and-known-hosts-action@v1.4.1
         with: 
           ssh-private-key: ${{ secrets.SSH_KEY }}
-          ssh-host: ${{ variables.HOST }}
+          ssh-host: ${{ variables.PHOST }}
           
       - name: install httpd
         run: | 
